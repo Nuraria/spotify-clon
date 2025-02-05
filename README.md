@@ -1,8 +1,14 @@
-# React + Vite
+### A description of everything new to me in this project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Hooks - react-router-dom
 
-Currently, two official plugins are available:
+- useNavigate
+- useLocation
+- useParams
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Hooks - react
+
+- useContext
+- useRef
+
+- Project build template: React + Vite
