@@ -1,12 +1,12 @@
-### A description of everything new to me in this project
+# A description of everything new to me in this project
 
-# Hooks - react-router-dom
+### Hooks - react-router-dom
 
 - useNavigate
 - useLocation
 - useParams
 
-# Hooks - react
+### Hooks - react
 
 - useContext
 - useRef
