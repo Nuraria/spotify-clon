@@ -21,7 +21,7 @@
 3. Обрабатывание действий пользователя на сайте. Перенаправление в зависимости от таких действий как подача формы или входа в систему **_(изменение состояния)_**
 4. Программное перенаправление на разные маршруты в зависимости от выполнения условия или состояния хранящегося в state
 
-### Как использовала в проекте
+### Как useNavigate использовала в проекте
 
 Здесь я использовала хук useNavigate для того что-бы реализовать перенаправление пользователя в альбом по уникальному _id_
 
@@ -44,6 +44,46 @@
 };
 ```
 
-\*\*
+Панель навигации которая позволяет нам перемещаться на +1 и -1 в стеке истории по кнопкам
+
+```rb
+
+ const navigate = useNavigate();
+
+  return (
+    <>
+      <div className="w-full flex justify-between items-center font-semibold">
+        <div className="flex items-center gap-2">
+          <img
+            onClick={() => navigate(-1)}
+            className="w-8 bg-black p-2 rounded-2xl cursor-pointer"
+            src={assets.arrow_left}
+            alt="arrow_left"
+          />
+          <img
+            onClick={() => navigate(1)}
+            className="w-8 bg-black p-2 rounded-2xl cursor-pointer"
+            src={assets.arrow_right}
+            alt="arrow_left"
+          />
+        </div>
+```
+
+Переход по главному пути указанному в _аргументе_ функции navigate
+
+```rb
+const navigate = useNavigate();
+
+  return (
+    <div className="w-[25%] h-full p-2 flex-col gap-2 text-white hidden  lg:flex">
+      <div className="bg-[#121212] h-[15%] rounded flex flex-col justify-around">
+        <div
+          onClick={() => navigate("/")}
+          className="flex items-center gap-3 pl-8 cursor-pointer"
+        >
+          <img className="w-6" src={assets.home_icon} alt="home" />
+          <p className="font-bold">Главная</p>
+        </div>
+```
 
 ### Project build template: React + Vite, tailwindCSS, React-router-dom
