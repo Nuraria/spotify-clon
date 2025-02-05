@@ -88,8 +88,46 @@ const navigate = useNavigate();
 
 ## Description
 
-**useLocation()** - 
+**useLocation()** - возвращает объект _location_, содержащий текущий **URL**. Его можно рассматривать как state хранящий текущее положение пользователя на странице с помощью которого можно вернуть новое местоположение(URL) если оно внезапно измениться.
+Основные моменты к реализации:
 
+- Всегда знаем свой текущий URL !)
 
+### Как useLocation использовался в проекте
+
+Получаем объект _location_ у которого получаем путь в **URL** с помощью _pathname_ , метод include проверяет в строке наличие подстроки `includes("album")` и проверяя по условию если подстрока true тогда оно получает часть пути URL после первой косой черты где содержится необходимый нам _id_ иначе пустая строка.
+
+> С помощью полученнного id позже мы вытаскиваем необходимый backroud для нашей странички в зависимости от песни на которую мы перешли.
+
+```rb
+const Dispaly = () => {
+  const displayRef = useRef();
+  const location = useLocation();
+  const isAlbum = location.pathname.includes("album");
+  const albumId = isAlbum ? location.pathname.slice(-1) : "";
+  const bgColor = albumsData[Number(albumId)].bgColor;
+
+  useEffect(() => {
+    if (isAlbum) {
+
+      displayRef.current.style.background = `linear-gradient(${bgColor},#121212`;
+    } else {
+
+      displayRef.current.style.background = `#121212`;
+    }
+  });
+  return (
+    <div
+      ref={displayRef}
+      className="w-[100%] m-2 px-6 pt-4 rounded bg-[#121212] text-white overflow-auto lg:w-[75%] lg:ml-0"
+    >
+      <Routes>
+        <Route path="/" element={<DisplayHome />} />
+        <Route path="/album/:id" element={<DisplayAlbum />} />
+      </Routes>
+    </div>
+  );
+};
+```
 
 ### Project build template: React + Vite, tailwindCSS, React-router-dom
