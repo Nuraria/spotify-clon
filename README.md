@@ -211,4 +211,4 @@ const Dispaly = () => {
 
 > В _PlayerContext_ моего сайта содержаться переменные и функции которые передаются строго в необходимые точки где рендер страницы на прямую связан с их содержимым.
 
-### Project build template: React + Vite, tailwindCSS, React-router-dom
+### Project build template: React + Vite, tailwindCSS, React-router-dom ✔
