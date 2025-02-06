@@ -8,10 +8,10 @@
 
 ### Hooks - react
 
-- useContext
 - useRef
+- useContext
 
-## Description
+## Description about react-router-dom hooks
 
 **useNavigate()** - возращает функцию для навигации по разным маршрутам внутри преложения без прямого рендеринга компонента `<Link>`
 Основные моменты к реализации:
@@ -95,7 +95,7 @@ const navigate = useNavigate();
 
 ### Как useLocation использовался в проекте
 
-Получаем объект _location_ у которого получаем путь в **URL** с помощью _pathname_ , метод include проверяет в строке наличие подстроки `includes("album")` и проверяя по условию если подстрока true тогда оно получает часть пути URL после первой косой черты где содержится необходимый нам _id_ иначе пустая строка.
+Получаем объект _location_ у которого получаем путь в **URL** с помощью _pathname_ , метод include проверяет в строке наличие подстроки `includes("album")` и проверяя по условию если подстрока если есть(true) тогда оно получает часть пути URL после первой косой черты где содержится необходимый нам _id_ иначе пустая строка.
 
 > С помощью полученнного id позже мы вытаскиваем необходимый backroud для нашей странички в зависимости от песни на которую мы перешли.
 
@@ -129,5 +129,39 @@ const Dispaly = () => {
   );
 };
 ```
+
+## Descrition
+
+**useParams** - возвращает обЪект с параметрами _URL_ в формате _key:value_ обеспечивая к ним доступ.
+
+> Когда использовать: Когда нужны значения, переданные в статической части URL, определенной в маршруте. Например, если маршрут /products/:id, то useParams() предоставит вам доступ к значению id.
+
+По полученному _id_ мы можем вытащить данные о изображении, названии и прочие данные к каждому конкретному обЪекту.
+
+```rb
+  const DisplayAlbum = () => {
+  const { id } = useParams();
+  const albumData = albumsData[id];
+
+  <div className="mt-10 flex gap-8 flex-col md:flex-row md:items-end">
+        <img className="rounded w-48" src={albumData.image} alt="image" />
+        <div className="flex flex-col">
+          <p>Плэйлист</p>
+          <h2 className="text-5xl font-bold mb-4 md:text-7xl">
+            {albumData.name}
+          </h2>
+          <h4>{albumData.desc}</h4>
+          <p className="mt-1">
+            <img
+              className="inline-block w-5"
+              src={assets.spotify_logo}
+              alt="logo"
+            />
+
+```
+
+## Description about react hooks
+
+**useRef** -
 
 ### Project build template: React + Vite, tailwindCSS, React-router-dom
